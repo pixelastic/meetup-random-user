@@ -10,21 +10,25 @@ module.exports = function(context, mainReq, mainRes) {
     mainRes(JSON.stringify({"error": "No url specified"}));
     return false;
   }
-  
+
+  if (!url.match(/\/attendees$/)) {
+    url = url + (url.match(/\/$/) ? '' : '/' ) + 'attendees';
+  }
+
   request.get(url, function(_error, subRes, body) {
     var $ = cheerio.load(body);
-    var attendees = $('#rsvp-list li');
+    var attendees = $('.attendees-list li');
     var max = attendees.length;
     var pick = $(_.sample(attendees));
+    var url = pick.find('a.avatar').attr('href');
     var record = {
-      id: pick.attr('data-memberid'),
-      url: pick.find('a.mem-photo-small').attr('href'),
-      picture: pick.find('a.mem-photo-small').attr('data-src'),
-      name: pick.find('.member-name a').text()
+      id: url.match(/\/(\d+)/)[1],
+      url: url,
+      picture: pick.find('img.avatar-print').attr('src'),
+      name: pick.find('h4').text()
     }
     mainRes.end(JSON.stringify(record));
-  })
-
+  });
 }
 
 
