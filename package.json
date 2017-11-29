@@ -1,0 +1,19 @@
+{
+  "name": "meetup-random-user",
+  "version": "0.0.1",
+  "description": "Pick a random attendee from any meetup event",
+  "repository": "git@github.com:pixelastic/meetup-random-user.git",
+  "author": "Pixelastic <tim@pixelastic.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test.js",
+    "deploy": "wt create ./webtask/meetup-random-user.js"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "lodash": "^4.17.4",
+    "request": "^2.83.0",
+    "wt-cli": "^8.2.0"
+  }
+}
