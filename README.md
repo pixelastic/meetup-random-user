@@ -18,7 +18,7 @@ The initial webpage will then display the results.
 
 ## What is Webtask.io?
 
-[Webtask.io][2] is an awesome service provided by the equally awesome people at
+[Webtask.io][2] is an awesome service provided by the awesome people at
 [Auth0][3]. It lets you upload server-side JavaScript snippets to their hosted
 platform. You can then request those snippets through a custom url, and have
 your code executed server-side.
@@ -28,9 +28,14 @@ I cannot do it in the browser directly, because of CORS issues.
 
 The script is available in `./webtask/meetup-random-user.js`, and accessible at
 `https://wt-a2f9d5672798ac7ef42b871652a58fb0-0.run.webtask.io/meetup-random-user`.
-You won't have the rights to edit it as it was created under my account, but
-feel free to push your own copy of it to your own account if you'd like to add
-any changes to it.
+You won't have the rights to edit, but feel free to push your own copy of it to
+your own account if you'd like to add any changes to it.
+
+## How to test it locally?
+
+You can test the output of the webtask function by running `yarn run test`. It
+will in turn run the `test.js` file. A meetup url is hardcoded inside this file,
+you have to check if the output seems ok.
 
 
 [1]: ./screencast.gif
